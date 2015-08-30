@@ -1,0 +1,8 @@
+<%= form_for(FileUpload.new) do |f| %>
+  <%= f.file_field :secure_file, name: 'secure_file' %>
+  <%= f.submit 'Upload' %>
+<% end %>
+<% FileUpload.all.each do |upload| %>
+  <%= "Upload #{upload.id}" %> |
+  <%= link_to 'Download', download_file_upload_path(upload), target: '_blank' %>
+<% end %>

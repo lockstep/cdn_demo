@@ -11,9 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150830034241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "file_uploads", force: :cascade do |t|
+    t.string   "secure_file_file_name"
+    t.string   "secure_file_content_type"
+    t.integer  "secure_file_file_size"
+    t.datetime "secure_file_updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
 end
