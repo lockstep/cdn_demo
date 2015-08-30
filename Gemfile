@@ -22,7 +22,9 @@ gem 'figaro', '1.1.1'
 # HAML templating
 gem 'haml', '4.0.6'
 gem 'html2haml', '1.0.1'
+gem 'aws-sdk', '1.64.0'
 
+gem 'paperclip', '4.2.1'
 gem 'rails_stdout_logging', '0.0.3'
 gem 'libv8', '3.16.14.7'
 gem 'ref', '1.0.5'
