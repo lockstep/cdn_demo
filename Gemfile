@@ -7,6 +7,8 @@ gem 'rails', '4.2.1'
 gem 'pg', '0.18.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '2.7.1'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.2.6'
 gem 'execjs', '2.5.2'
@@ -28,6 +30,9 @@ gem 'paperclip', '4.2.1'
 gem 'rails_stdout_logging', '0.0.3'
 gem 'libv8', '3.16.14.7'
 gem 'ref', '1.0.5'
+
+gem 'zencoder'
+
 group :development do
   gem 'spring', '1.3.6'
   gem "spring-commands-rspec", '1.0.4'

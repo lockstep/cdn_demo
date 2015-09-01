@@ -12,4 +12,17 @@ class FileUpload < ActiveRecord::Base
     s3_protocol: "https",
     hash_secret: 'semiuniquehash',
     s3_permissions: :private
+
+
+  def encode!
+    format = File.extname(secure_file_file_name)
+    response = Zencoder::Job.create({
+      input: self.secure_file.expiring_url,
+      output: [{
+        label: 'transcoded',
+        url: self.secure_file.url(:transcoded)
+      }]
+    })
+    update(zencoder_id: response.body['id'])
+  end
 end

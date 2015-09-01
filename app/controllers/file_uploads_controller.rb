@@ -1,7 +1,14 @@
 class FileUploadsController < ApplicationController
+  def show
+    @file = FileUpload.find(params[:id])
+    response = Zencoder::Job.progress(@file.zencoder_id)
+    @status = response.body['state']
+  end
 
   def create
-    FileUpload.create(file_upload_params)
+    @file = FileUpload.create(file_upload_params)
+    @file.encode!
+
     redirect_to root_path, notice: 'File uploaded'
   end
 

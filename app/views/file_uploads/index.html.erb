@@ -1,8 +1,20 @@
-<%= form_for(FileUpload.new) do |f| %>
-  <%= f.file_field :secure_file, name: 'secure_file' %>
-  <%= f.submit 'Upload' %>
-<% end %>
-<% FileUpload.all.each do |upload| %>
-  <%= "Upload #{upload.id}" %> |
-  <%= link_to 'Download', download_file_upload_path(upload), target: '_blank' %>
-<% end %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-xs-12'>
+      <%= form_for(FileUpload.new) do |f| %>
+        <%= f.file_field :secure_file, name: 'secure_file' %>
+        <%= f.submit 'Upload' %>
+      <% end %>
+    </div>
+  </div>
+
+  <% FileUpload.all.each do |upload| %>
+    <div class='row'>
+      <div class='col-xs-12'>
+        <%= "Upload #{upload.id}" %> |
+        <%= link_to 'Download', download_file_upload_path(upload), target: '_blank' %>
+        <%= link_to 'View', file_upload_path(upload) %>
+      </div>
+    </div>
+  <% end %>
+</div>
