@@ -3,6 +3,7 @@ feature 'File Uploads' do
     visit root_path
     allow_any_instance_of(Paperclip::Attachment)
       .to receive(:save).and_return(true)
+    allow_any_instance_of(FileUpload).to receive(:encode!).and_return(true)
     attach_file 'secure_file', 'spec/fixtures/testupload.png'
     click_button('Upload')
     expect(page).to have_content('File uploaded')
